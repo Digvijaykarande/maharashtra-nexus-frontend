@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #020617;
+
+  --primary: #10b981;
+  --primary-foreground: #ffffff;
+
+  --secondary: #0f172a;
+
+  --accent: #f59e0b;
+
+  --muted: #64748b;
+
+  --border: #e2e8f0;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  --primary: #10b981;
+  --primary-foreground: #ffffff;
+
+  --secondary: #0f172a;
+
+  --accent: #f59e0b;
+
+  --muted: #94a3b8;
+
+  --border: #1e293b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+/* ── Custom Leaflet Map HUD Popup Styles ────────────────── */
+.custom-hud-popup .leaflet-popup-content-wrapper {
+  background: rgba(8, 13, 28, 0.9) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+}
+.custom-hud-popup .leaflet-popup-tip {
+  background: rgba(8, 13, 28, 0.9) !important;
+  border-left: 1px solid rgba(16, 185, 129, 0.3);
+  border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* ── Global Scrollbar Extraction (Tailwind v4 Optimized) ── */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+html, body {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+
+/* ── GLOBAL CASCADE OVERRIDE FOR THE ADMIN ROUTE ── */
+@layer utilities {
+  /* This checks if the active path or component wrapper matches an admin domain */
+  :root:has([class*="admin"]),
+  html:has([class*="admin"]),
+  body:has([class*="admin"]),
+  [class*="admin"] {
+    
+    /* 1. Reset theme flags to white layout mode values */
+    --background: #ffffff !important;
+    --foreground: #020617 !important;
+    --border: #e2e8f0 !important;
+    --muted: #64748b !important;
+
+    /* 2. Absolute override for any forced black backgrounds */
+    .bg-slate-900,
+    .bg-slate-950,
+    .dark\:bg-slate-900,
+    [class*="dark:bg-"] {
+      background-color: #ffffff !important;
+      color: #020617 !important;
+      border-color: #e2e8f0 !important;
+    }
+
+    /* 3. Force dark readability text for hidden values */
+    .text-white,
+    .dark\:text-white,
+    [class*="dark:text-"] {
+      color: #0f172a !important;
+    }
+
+    /* 4. Force data tables headers back into clear clean rows */
+    th,
+    thead tr,
+    tr.bg-slate-900,
+    tr[class*="bg-"] {
+      background-color: #f8fafc !important;
+      color: #475569 !important;
+    }
+
+    /* 5. Keep interactive green links legible */
+    .text-emerald-400,
+    .text-emerald-500 {
+      color: #10b981 !important;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+export const villagesByTaluka = {
+  haveli: [
+    {
+      slug: "wagholi",
+      name: "Wagholi",
+      type: "Village",
+      state: "Maharashtra",
+      division: "Pune",
+      district: "Pune",
+      taluka: "Haveli",
+      population: 120000,
+      malePopulation: 62000,
+      femalePopulation: 58000,
+      hospitals: 8,
+      schools: 25,
+      colleges: 4,
+      latitude: 18.5793,
+      longitude: 73.9781,
+      address: "Wagholi, Haveli Taluka, Pune District, Maharashtra",
+      lastUpdated: "2026-01-15",
+    },
+    {
+      slug: "hadapsar-rural",
+      name: "Hadapsar (Rural fringes)",
+      type: "Village",
+      state: "Maharashtra",
+      division: "Pune",
+      district: "Pune",
+      taluka: "Haveli",
+      population: 45000,
+      malePopulation: 24000,
+      femalePopulation: 21000,
+      hospitals: 3,
+      schools: 12,
+      colleges: 1,
+      latitude: 18.4967,
+      longitude: 73.9417,
+      address: "Hadapsar Rural, Haveli Taluka, Pune District, Maharashtra",
+      lastUpdated: "2026-02-10",
+    }
+  ],
+  mulshi: [
+    {
+      slug: "hinjawadi",
+      name: "Hinjawadi",
+      type: "Village / IT Hub",
+      state: "Maharashtra",
+      division: "Pune",
+      district: "Pune",
+      taluka: "Mulshi",
+      population: 95000,
+      malePopulation: 52000,
+      femalePopulation: 43000,
+      hospitals: 6,
+      schools: 15,
+      colleges: 3,
+      latitude: 18.5913,
+      longitude: 73.7389,
+      address: "Hinjawadi, Mulshi Taluka, Pune District, Maharashtra",
+      lastUpdated: "2026-03-01",
+    }
+  ]
+};
+
+export const villages = Object.values(villagesByTaluka).flat();
