@@ -47,6 +47,7 @@ updateVillage: (slug, data) => API.put(`/villages/${slug}`, data),
 getCitiesByTaluka: (talukaSlug) => API.get(`/cities?taluka=${talukaSlug}`),
 getTownsByTaluka: (talukaSlug) => API.get(`/towns?taluka=${talukaSlug}`),
 
+getActivityLogs: () => API.get('/activitylogs'),
 
 // === DASHBOARD AGGREGATION ALIASES ===
   getAllDivisions: () => API.get('/divisions'),
